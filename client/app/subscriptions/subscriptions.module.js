@@ -3,7 +3,9 @@
   'use strict';
 
   angular
-    .module('subscriptionApp.subscriptions', [])
+    .module('subscriptionApp.subscriptions', [
+      'subscriptionApp.core'
+    ])
     .config(configStates);
 
   configStates.$inject = [
