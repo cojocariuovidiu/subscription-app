@@ -1,16 +1,17 @@
-'use strict';
+(function() {
 
-angular.module('subscriptionAppApp', [
-  'subscriptionAppApp.constants',
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ui.router',
-  'ui.bootstrap'
-])
-  .config(function($urlRouterProvider, $locationProvider) {
-    $urlRouterProvider
-      .otherwise('/');
+  'use strict';
 
-    $locationProvider.html5Mode(true);
-  });
+  angular
+    .module('subscriptionApp', [
+      // Shared modules
+      'subscriptionApp.core'
+
+      // Feature areas
+    ])
+    .config(function($urlRouterProvider, $locationProvider) {
+      $urlRouterProvider.otherwise('/');
+      $locationProvider.html5Mode(true);
+    });
+
+})();
