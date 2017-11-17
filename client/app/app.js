@@ -9,9 +9,16 @@
 
       // Feature areas
     ])
-    .config(function($urlRouterProvider, $locationProvider) {
+    .config(configRoutes);
+
+    configRoutes.$inject = [
+      '$urlRouterProvider',
+      '$locationProvider'
+    ];
+
+    function configRoutes($urlRouterProvider, $locationProvider) {
       $urlRouterProvider.otherwise('/');
       $locationProvider.html5Mode(true);
-    });
+    }
 
 })();
