@@ -20,6 +20,7 @@
         <input type="text"
           class="form-control"
           name="firstName"
+          maxlength="50"
           ng-model="createVM.subscription.firstName">
       </div>
 
@@ -29,8 +30,15 @@
         <input type="email"
           class="form-control"
           name="email"
+          maxlength="254"
           ng-model="createVM.subscription.email"
           required>
+
+        <p class="help-block"
+          ng-show="createVM.createSubscriptionForm.email.$invalid
+          && !createVM.createSubscriptionForm.email.$pristine">
+          <span class="text-danger">Enter a valid email.</span>
+        </p>
       </div>
 
       <div class="form-group">
