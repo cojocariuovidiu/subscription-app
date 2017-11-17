@@ -5,9 +5,10 @@
   angular
     .module('subscriptionApp', [
       // Shared modules
-      'subscriptionApp.core'
+      'subscriptionApp.core',
 
       // Feature areas
+      'subscriptionApp.subscriptions'
     ])
     .config(configRoutes);
 
