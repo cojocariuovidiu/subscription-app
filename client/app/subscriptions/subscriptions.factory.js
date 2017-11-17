@@ -11,12 +11,12 @@
     function subscriptionsFactory() {
 
       return {
-        getAll: getAll
+        create: create
       };
 
       ////
 
-      function getAll() {
+      function create(subscription) {
         return null;
       }
 
