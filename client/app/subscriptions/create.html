@@ -1,22 +1,88 @@
 <div class="container">
-  <form>
-    <div class="form-group">
-      <label for="formGroupExampleInput">Example label</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Newsletter subscription</h1>
+
+      <p>Fill the following form to subscribe to our list!</p>
+    </div>
+  </div>
+
+  <form name="createVM.createSubscriptionForm"
+        ng-submit="createVM.createSubscription()"
+        novalidate>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <div class="form-group">
+        <label for="firstName">First Name <small><em>(optional)</em></small></label>
+
+        <input type="text"
+          class="form-control"
+          name="firstName"
+          ng-model="createVM.subscription.firstName">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+
+        <input type="email"
+          class="form-control"
+          name="email"
+          ng-model="createVM.subscription.email"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender <small><em>(optional)</em></small></label><br>
+
+        <div class="radio-inline">
+          <label>
+            <input type="radio"
+              name="gender"
+              value="male"
+              ng-model="createVM.subscription.gender">
+            Male
+          </label>
+        </div>
+
+        <div class="radio-inline">
+          <label>
+            <input type="radio"
+              name="gender"
+              value="female"
+              ng-model="createVM.subscription.gender">
+            Female
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox"
+              class="form-check-input"
+              name="consent"
+              ng-model="createVM.isConsentChecked"
+              required>
+            Consent
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <button type="submit"
+        class="btn btn-primary btn-block"
+        ng-disabled="!createVM.isFormFilledCorrectly()">
+        Submit
+      </button>
     </div>
 
-    <div class="form-group">
-      <label for="formGroupExampleInput2">Another label</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-    </div>
-
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
-        Check me out
-      </label>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+
 </div>
