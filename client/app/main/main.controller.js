@@ -25,7 +25,7 @@ class MainController {
   }
 }
 
-angular.module('subscriptionAppApp')
+angular.module('subscriptionApp')
   .controller('MainController', MainController);
 
 })();

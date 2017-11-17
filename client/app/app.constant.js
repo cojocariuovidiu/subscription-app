@@ -1,7 +1,7 @@
 (function(angular, undefined) {
 'use strict';
 
-angular.module('subscriptionAppApp.constants', [])
+angular.module('subscriptionApp.constants', [])
 
 .constant('appConfig', {userRoles:['guest','user','admin']})
 

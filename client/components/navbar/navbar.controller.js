@@ -14,5 +14,5 @@ class NavbarController {
     }
 }
 
-angular.module('subscriptionAppApp')
+angular.module('subscriptionApp')
   .controller('NavbarController', NavbarController);

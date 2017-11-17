@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('subscriptionAppApp')
+angular.module('subscriptionApp')
   .factory('Modal', function($rootScope, $modal) {
     /**
      * Opens a modal

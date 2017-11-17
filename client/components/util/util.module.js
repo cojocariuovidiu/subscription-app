@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('subscriptionAppApp.util', []);
+angular.module('subscriptionApp.util', []);

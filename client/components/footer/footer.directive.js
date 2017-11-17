@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('subscriptionAppApp')
+angular.module('subscriptionApp')
   .directive('footer', function() {
     return {
       templateUrl: 'components/footer/footer.html',

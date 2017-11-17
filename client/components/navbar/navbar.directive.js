@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('subscriptionAppApp')
+angular.module('subscriptionApp')
   .directive('navbar', () => ({
     templateUrl: 'components/navbar/navbar.html',
     restrict: 'E',

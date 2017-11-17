@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('subscriptionAppApp')
+angular.module('subscriptionApp')
   .config(function($stateProvider) {
     $stateProvider
       .state('main', {
