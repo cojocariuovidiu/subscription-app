@@ -1,0 +1,5 @@
+<alert ng-repeat="alert in alertsVM.alerts"
+  type="{{alert.type}}"
+  close="alertsVM.closeAlert()">
+  <span ng-bind-html="alert.msg"></span>
+</alert>

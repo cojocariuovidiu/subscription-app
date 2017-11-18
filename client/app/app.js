@@ -6,6 +6,7 @@
     .module('subscriptionApp', [
       // Shared modules
       'subscriptionApp.core',
+      'subscriptionApp.widgets',
 
       // Feature areas
       'subscriptionApp.subscriptions'
