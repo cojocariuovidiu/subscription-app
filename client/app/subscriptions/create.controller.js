@@ -15,15 +15,18 @@
 
     vm.subscription = {};
     vm.isConsentChecked = false;
+    vm.isDatePickerOpened = false;
 
     vm.createSubscription = createSubscription;
     vm.hasInputErrors = hasInputErrors;
     vm.isFormFilledCorrectly = isFormFilledCorrectly;
+    vm.openDatePicker = openDatePicker;
 
 
     function createSubscription() {
       return subscriptionsFactory.create(vm.subscription)
-        .then(_goToCreateConfirmation);
+        .then(_goToCreateConfirmation)
+        .catch(_showUnexpectedError);
     }
 
     function hasInputErrors(inputName) {
@@ -33,6 +36,10 @@
 
     function isFormFilledCorrectly() {
       return _isFormValid() && vm.isConsentChecked;
+    }
+
+    function openDatePicker() {
+      vm.isDatePickerOpened = true;
     }
 
     ////
@@ -47,6 +54,10 @@
 
     function _isFormValid() {
       return vm.createSubscriptionForm.$valid;
+    }
+
+    function _showUnexpectedError() {
+      // to do: show unexpected error
     }
   }
 

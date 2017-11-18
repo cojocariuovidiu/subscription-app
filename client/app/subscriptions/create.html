@@ -27,6 +27,7 @@
             ng-model="createVM.subscription.firstName">
         </div>
 
+        <!-- TODO: validate <email, newsletterID> -->
         <div class="form-group"
           ng-class="{ 'has-error' : createVM.hasInputErrors('email') }">
           <label class="control-label" for="email">
@@ -43,6 +44,36 @@
           <p class="help-block"
             ng-if="createVM.hasInputErrors('email')">
             <span class="text-danger">Enter a valid email.</span>
+          </p>
+        </div>
+
+        <div class="form-group"
+          ng-class="{ 'has-error' : createVM.hasInputErrors('dateOfBirth') }">
+          <label class="control-label" for="email">
+            Date of birth
+          </label>
+
+          <p class="input-group">
+            <input type="text"
+              name="dateOfBirth"
+              datepicker-popup="dd-MM-yyyy"
+              class="form-control"
+              ng-model="createVM.subscription.dateOfBirth"
+              is-open="createVM.isDatePickerOpened"
+              close-text="Close"
+              required />
+            <span class="input-group-btn">
+              <button type="button"
+                class="btn btn-default"
+                ng-click="createVM.openDatePicker()">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+
+          <p class="help-block"
+            ng-if="createVM.hasInputErrors('dateOfBirth')">
+            <span class="text-danger">Enter a valid date.</span>
           </p>
         </div>
 
