@@ -8,14 +8,16 @@
             'ngCookies',
             'ngResource',
             'ngSanitize',
-            'ngAutodisable',
 
             // Cross-app modules
             'subscriptionApp.constants',
+            'blocks.restangular',
 
             // 3rd-party modules
             'ui.router',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'ngAutodisable',
+            'restangular'
         ]);
 
 })();
