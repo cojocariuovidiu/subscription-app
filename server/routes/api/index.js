@@ -1,15 +1,10 @@
 'use strict';
 
 var express = require('express');
-var controller = require('../../modules/thing/thing.controller');
+var subscriptionController = require('../../modules/subscription/subscription.controller');
 
 var router = express.Router();
 
-router.get('/things/', controller.index);
-router.get('/things/:id', controller.show);
-router.post('/things/', controller.create);
-router.put('/things/:id', controller.update);
-router.patch('/things/:id', controller.update);
-router.delete('/things/:id', controller.destroy);
+router.post('/subscriptions', subscriptionController.create);
 
 module.exports = router;
