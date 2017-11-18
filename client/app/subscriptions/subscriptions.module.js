@@ -4,7 +4,8 @@
 
   angular
     .module('subscriptionApp.subscriptions', [
-      'subscriptionApp.core'
+      'subscriptionApp.core',
+      'subscriptionApp.widgets'
     ])
     .config(configStates);
 
@@ -16,13 +17,13 @@
     $stateProvider
       .state('create-subscriptions', {
         url: '/',
-        templateUrl: 'app/subscriptions/create.html',
+        templateUrl: 'app/subscriptions/create/create.html',
         controller: 'CreateSubscriptionsCtrl',
         controllerAs: 'createVM'
       })
       .state('create-subscriptions-confirmation', {
         url: '/confirmation',
-        templateUrl: 'app/subscriptions/create-confirmation.html'
+        templateUrl: 'app/subscriptions/create/create-confirmation.html'
       });
   }
 
