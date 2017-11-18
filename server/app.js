@@ -25,6 +25,7 @@ var app = express();
 var server = http.createServer(app);
 require('./config/express')(app);
 require('./routes')(app);
+require('./errors')(app);
 
 // Start server
 function startServer() {
