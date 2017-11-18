@@ -3,8 +3,8 @@
   'use strict';
 
   angular
-      .module('subscriptionApp.subscriptions')
-      .factory('subscriptionsFactory', subscriptionsFactory);
+    .module('subscriptionApp.subscriptions')
+    .factory('subscriptionsFactory', subscriptionsFactory);
 
   subscriptionsFactory.$inject = [
     'PublicRestangular'
