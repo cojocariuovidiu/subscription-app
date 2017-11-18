@@ -6,14 +6,18 @@
     .controller('CreateSubscriptionsCtrl', CreateSubscriptionsCtrl);
 
   CreateSubscriptionsCtrl.$inject = [
+    'APP_CONFIG',
     '$state',
-    'subscriptionsFactory'
+    'subscriptionsFactory',
+    'httpErrorUtils',
+    'subscriptionsAlerts'
   ];
 
-  function CreateSubscriptionsCtrl($state, subscriptionsFactory) {
+  function CreateSubscriptionsCtrl(APP_CONFIG, $state, subscriptionsFactory,
+    httpErrorUtils, subscriptionsAlerts) {
     var vm = this;
 
-    vm.subscription = {};
+    vm.subscription = _getEmptySubscription();
     vm.isConsentChecked = false;
     vm.isDatePickerOpened = false;
 
@@ -26,7 +30,7 @@
     function createSubscription() {
       return subscriptionsFactory.create(vm.subscription)
         .then(_goToCreateConfirmation)
-        .catch(_showUnexpectedError);
+        .catch(_handleCreateSubscriptionError);
     }
 
     function hasInputErrors(inputName) {
@@ -44,6 +48,12 @@
 
     ////
 
+    function _getEmptySubscription() {
+      return {
+        newsletterId: APP_CONFIG.newsletterId
+      };
+    }
+
     function _goToCreateConfirmation() {
       $state.go('create-subscriptions-confirmation');
     }
@@ -56,8 +66,12 @@
       return vm.createSubscriptionForm.$valid;
     }
 
-    function _showUnexpectedError() {
-      // TODO: show unexpected error
+    function _handleCreateSubscriptionError(err) {
+      if (httpErrorUtils.isConflict(err)) {
+        subscriptionsAlerts.showAlreadySubscribed(vm.subscription.email);
+      } else {
+        subscriptionsAlerts.showUnexpectedError();
+      }
     }
   }
 
