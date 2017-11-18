@@ -22,8 +22,8 @@
 
 
     function createSubscription() {
-      // return subscriptionsFactory.create(vm.subscription);
-      _goToCreateConfirmation();
+      return subscriptionsFactory.create(vm.subscription)
+        .then(_goToCreateConfirmation);
     }
 
     function hasInputErrors(inputName) {
