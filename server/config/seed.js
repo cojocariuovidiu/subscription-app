@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Thing from '../modules/thing/thing.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
