@@ -1,6 +1,6 @@
 'use strict';
 
-describe.only('Controller: CreateSubscriptionsCtrl', function() {
+describe('Controller: CreateSubscriptionsCtrl', function() {
 
   beforeEach(module('subscriptionApp.subscriptions'));
   beforeEach(module('stateMock'));
