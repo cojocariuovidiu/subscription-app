@@ -17,6 +17,7 @@
     vm.isConsentChecked = false;
 
     vm.createSubscription = createSubscription;
+    vm.hasInputErrors = hasInputErrors;
     vm.isFormFilledCorrectly = isFormFilledCorrectly;
 
 
@@ -25,9 +26,13 @@
       _goToCreateConfirmation();
     }
 
+    function hasInputErrors(inputName) {
+      return !vm.createSubscriptionForm[inputName].$valid
+        && vm.createSubscriptionForm[inputName].$dirty;
+    }
+
     function isFormFilledCorrectly() {
-      return _areFieldsFilledCorrectly()
-        && vm.isConsentChecked;
+      return _isFormValid() && vm.isConsentChecked;
     }
 
     ////
@@ -36,8 +41,12 @@
       $state.go('create-subscriptions-confirmation');
     }
 
-    function _areFieldsFilledCorrectly() {
-      return !vm.createSubscriptionForm.$invalid;
+    function _hasInputBeenUsed(inputName) {
+      return vm.createSubscriptionForm[inputName].$dirty;
+    }
+
+    function _isFormValid() {
+      return vm.createSubscriptionForm.$valid;
     }
   }
 

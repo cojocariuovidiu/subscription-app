@@ -24,8 +24,9 @@
           ng-model="createVM.subscription.firstName">
       </div>
 
-      <div class="form-group">
-        <label for="email">Email address</label>
+      <div class="form-group"
+        ng-class="{ 'has-error' : createVM.hasInputErrors('email') }">
+        <label class="control-label" for="email">Email address</label>
 
         <input type="email"
           class="form-control"
@@ -35,8 +36,7 @@
           required>
 
         <p class="help-block"
-          ng-show="createVM.createSubscriptionForm.email.$invalid
-          && !createVM.createSubscriptionForm.email.$pristine">
+          ng-if="createVM.hasInputErrors('email')">
           <span class="text-danger">Enter a valid email.</span>
         </p>
       </div>
