@@ -3,7 +3,7 @@
 
 angular.module('subscriptionApp.constants', [])
 
-.constant('appConfig', {userRoles:['guest','user','admin']})
+.constant('APP_CONFIG', {apiEndpoint:'http://localhost:9000'})
 
 ;
 })(angular);
