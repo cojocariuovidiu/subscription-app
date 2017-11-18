@@ -8,6 +8,7 @@
             'ngCookies',
             'ngResource',
             'ngSanitize',
+            'ngAutodisable',
 
             // Cross-app modules
             'subscriptionApp.constants',
