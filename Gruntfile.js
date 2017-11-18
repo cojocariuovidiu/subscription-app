@@ -324,7 +324,8 @@ module.exports = function (grunt) {
         constants: function() {
           return {
             APP_CONFIG: {
-              apiEndpoint: 'http://localhost:9000'
+              apiEndpoint: 'http://localhost:9000',
+              newsletterId: 'qwerty'
             }
           };
         }
