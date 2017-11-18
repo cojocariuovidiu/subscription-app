@@ -323,7 +323,9 @@ module.exports = function (grunt) {
       app: {
         constants: function() {
           return {
-            appConfig: require('./' + grunt.config.get('ngconstant.options.configPath'))
+            APP_CONFIG: {
+              apiEndpoint: 'http://localhost:9000'
+            }
           };
         }
       }
