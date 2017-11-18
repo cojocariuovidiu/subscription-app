@@ -1,8 +1,10 @@
 'use strict';
 
+var subscriptionService = require('./subscription.service');
+
 exports.create = create;
 
 function create(req, res, next) {
-  console.log('subscription received:', req.body)
+  subscriptionService.create(req.body);
   res.sendStatus(204);
 }
