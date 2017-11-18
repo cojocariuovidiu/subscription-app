@@ -7,17 +7,17 @@
       .factory('PublicRestangular', PublicRestangular);
 
     PublicRestangular.$inject = [
-        'appConfig',
+        'APP_CONFIG',
         'Restangular'
     ];
 
-    function PublicRestangular(appConfig, Restangular) {
+    function PublicRestangular(APP_CONFIG, Restangular) {
         return Restangular.withConfig(_setConfig);
 
         ////
 
         function _setConfig(RestangularConfigurer) {
-            RestangularConfigurer.setBaseUrl(appConfig.apiEndpoint + '/api');
+            RestangularConfigurer.setBaseUrl(APP_CONFIG.apiEndpoint + '/api');
             // TODO: revise
             // RestangularConfigurer.setDefaultHeaders({
             //     'Cache-Control': 'no-cache',
