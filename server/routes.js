@@ -8,8 +8,12 @@ import errors from './components/errors';
 import path from 'path';
 
 export default function(app) {
-  // Insert routes below
+  // api security middleware
+  app.use('/api', require('./auth/auth-middleware'));
+
+  // api routes
   app.use('/api', require('./routes/api'));
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);
