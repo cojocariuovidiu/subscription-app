@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <subs-alerts></subs-alerts>
+
+      <h1>Newsletter subscription</h1>
+
+      <p>Fill the following form to subscribe to our list!</p>
+    </div>
+  </div>
+
+  <form name="createVM.createSubscriptionForm"
+        ng-submit="createVM.createSubscription()"
+        ng-autodisable
+        novalidate>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+
+        <div class="form-group">
+          <label for="firstName">
+            First Name
+            <small><em>(optional)</em></small>
+          </label>
+
+          <input type="text"
+            class="form-control"
+            name="firstName"
+            maxlength="50"
+            ng-model="createVM.subscription.firstName">
+        </div>
+
+        <div class="form-group"
+          ng-class="{ 'has-error' : createVM.hasInputErrors('email') }">
+          <label class="control-label" for="email">
+            Email address
+          </label>
+
+          <input type="email"
+            class="form-control"
+            name="email"
+            maxlength="254"
+            ng-model="createVM.subscription.email"
+            required>
+
+          <p class="help-block"
+            ng-if="createVM.hasInputErrors('email')">
+            <span class="text-danger">Enter a valid email.</span>
+          </p>
+        </div>
+
+        <div class="form-group"
+          ng-class="{ 'has-error' : createVM.hasInputErrors('dateOfBirth') }">
+          <label class="control-label" for="email">
+            Date of birth
+          </label>
+
+          <p class="input-group">
+            <input type="text"
+              name="dateOfBirth"
+              datepicker-popup="dd-MM-yyyy"
+              class="form-control"
+              ng-model="createVM.subscription.dateOfBirth"
+              is-open="createVM.isDatePickerOpened"
+              close-text="Close"
+              required />
+            <span class="input-group-btn">
+              <button type="button"
+                class="btn btn-default"
+                ng-click="createVM.openDatePicker()">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+
+          <p class="help-block"
+            ng-if="createVM.hasInputErrors('dateOfBirth')">
+            <span class="text-danger">Enter a valid date.</span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">
+            Gender
+            <small><em>(optional)</em></small>
+          </label>
+
+          <br>
+
+          <div class="radio-inline">
+            <label>
+              <input type="radio"
+                name="gender"
+                value="male"
+                ng-model="createVM.subscription.gender">
+              Male
+            </label>
+          </div>
+
+          <div class="radio-inline">
+            <label>
+              <input type="radio"
+                name="gender"
+                value="female"
+                ng-model="createVM.subscription.gender">
+              Female
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox"
+                class="form-check-input"
+                name="consent"
+                ng-model="createVM.isConsentChecked"
+                required>
+              Consent
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <button type="submit"
+          class="btn btn-primary btn-block"
+          ng-disabled="!createVM.isFormFilledCorrectly()">
+          Submit
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
