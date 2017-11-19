@@ -50,7 +50,7 @@ Built using `Node.js` and `MongoDB` as persistance.
 
 Some relevant libraries used on the backend:
 
-- [express](http://expressjs.com): A minimal and flexible `Node.js` web application framework that provides a robust set of features for web and mobile applications with a large number of HTTP utility methods and middleware that makes creating a robust API something fast and easy. **Why:** It is one of the most straightforward framework choices for developing APIs in `Node.js`. There is also a lot of useful middleware out there - for example: for authentication or security - that can be easily plugged in your express app with no effort and a big community behind it.
+- [express](http://expressjs.com): A minimal and flexible `Node.js` web application framework that provides a robust set of features for web and mobile applications with a large number of HTTP utility methods and middleware that turns creating a robust API into something fast and easy. **Why:** It is one of the most straightforward framework choices for developing APIs in `Node.js`. There is also a lot of useful middleware out there - for example: for authentication or security - that can be easily plugged in your express app with no effort and a big community behind it.
 
 - [mongoose](https://github.com/Automattic/mongoose): A `MongoDB` object modeling for `Node.js` that provides a straight-forward, schema-based solution to model an application data. **Why:** It makes `MongoDB` data modeling and validation easier because it includes built-in query building, validation, type casting and some other useful features that, in the end, allow to save development time.
 
