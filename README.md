@@ -38,7 +38,7 @@ Running `grunt test` will run all the tests.
 
 Built using `AngularJS` and `Bootstrap`.
 
-Some relevant libraries used on the frontend:
+Some relevant libraries used:
 
 - [angular-autodisable](https://github.com/kirstein/angular-autodisable): An extension to angular `ng-click` directive that automatically sets the element to disabled if the handler would return a promise. **Why:** It is a very useful directive you can easily use on forms to automatically avoid multiple submitting.
 
@@ -48,7 +48,7 @@ Some relevant libraries used on the frontend:
 
 Built using `Node.js` and `MongoDB` as persistance.
 
-Some relevant libraries used on the backend:
+Some relevant libraries used:
 
 - [express](http://expressjs.com): A minimal and flexible `Node.js` web application framework that provides a robust set of features for web and mobile applications with a large number of HTTP utility methods and middleware that turns creating an API into something fast and easy. **Why:** It is one of the most straightforward framework choices for developing APIs in `Node.js`, with a big community behind it. There are also a lot of useful middleware out there - for example: authentication or security middleware - that can be easily plugged in your express app with no effort.
 
@@ -57,6 +57,10 @@ Some relevant libraries used on the backend:
 - [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
 
 - [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Its very useful to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `throwjs`, is one of my favorites.
+
+Some **security** relevant libraries used:
+
+- [helmet](https://github.com/helmetjs/helmet): Helmet is a collection of 12 smaller middleware functions that set HTTP headers to help protect your app. **Why:** Because it can help to avoid some known web vulnerabilities.
 
 ## API Documentation
 
