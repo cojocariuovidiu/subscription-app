@@ -44,6 +44,8 @@ Some relevant libraries used:
 
 - [restangular](https://github.com/mgonto/restangular): An AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. **Why:** It is a very simple way to consume data from a RESTful API and it also allows to do some interesting things like creating several instances with different configurations or adding request/response interceptors (which are basically automatic actions to perform on every request/response automatically), among others.
 
+- [momentjs](https://github.com/moment/moment/): Parse, validate, manipulate, and display dates and times in JavaScript. **Why**: Dealing with Dates can be something very tedious and this library offers a very useful and simple API to work with them very easily.
+
 ### Backend
 
 Built using `Node.js` and `MongoDB` as persistance.
@@ -57,6 +59,8 @@ Some relevant libraries used:
 - [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
 
 - [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Its very useful to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `throwjs`, is one of my favorites.
+
+- [momentjs](https://github.com/moment/moment/): _Already explained on the frontend libraries section :-)_
 
 Some **security** relevant libraries used:
 
