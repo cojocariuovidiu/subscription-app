@@ -3,37 +3,18 @@
  * to disable, edit config/environment/index.js, and set `seedDB: false`
  */
 
-// 'use strict';
-// import Thing from '../modules/thing/thing.model';
+'use strict';
+import keygen from 'keygen';
+import TrustedClient from '../auth/trusted-client/trusted-client.model';
 
-// Thing.find({}).removeAsync()
-//   .then(() => {
-//     Thing.create({
-//       name: 'Development Tools',
-//       info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-//              'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-//              'Stylus, Sass, and Less.'
-//     }, {
-//       name: 'Server and Client integration',
-//       info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-//              'AngularJS, and Node.'
-//     }, {
-//       name: 'Smart Build System',
-//       info: 'Build system ignores `spec` files, allowing you to keep ' +
-//              'tests alongside code. Automatic injection of scripts and ' +
-//              'styles into your index.html'
-//     }, {
-//       name: 'Modular Structure',
-//       info: 'Best practice client and server structures allow for more ' +
-//              'code reusability and maximum scalability'
-//     }, {
-//       name: 'Optimized Build',
-//       info: 'Build process packs up your templates as a single JavaScript ' +
-//              'payload, minifies your scripts/css/images, and rewrites asset ' +
-//              'names for caching.'
-//     }, {
-//       name: 'Deployment Ready',
-//       info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-//              'and openshift subgenerators'
-//     });
-//   });
+TrustedClient.find({}).remove().exec()
+  .then(() => {
+    TrustedClient.create({
+      name: 'Subscription SPA',
+      description: 'This is the Subscriptions SPA from where we will be ' +
+        'allowing people to subscribe to our newsletter',
+      isActive: true,
+      apiKey: '9cf09931e7cf2d7d36ad06',
+      apiSecret: 'ead67e06054b717adb50899be53d3bb41f6452374820'
+    });
+  });
