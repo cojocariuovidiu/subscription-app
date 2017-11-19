@@ -68,11 +68,11 @@ Some relevant libraries used on the backend:
 
 | Field 	| Type   	| Description 	|
 |-------	|--------	|-------------	|
-| firstName 	| string 	|             	|
-| email 	| string 	|             	|
-| dateOfBirth 	| string 	|             	|
-| gender 	| string 	|             	|
-| newsletterId 	| string 	|             	|
+| firstName  | string 	| **Optional**<br> Subscriber's first name. |
+| email 	| string 	| **Required**<br> Subscriber's email address. |
+| dateOfBirth 	| string 	| **Required**<br> Subscriber's date of birth. |
+| gender 	| string 	| **Optional**<br> Subscriber's gender.<br> _Allowed values:_ `male`, `female`. |
+| newsletterId 	| string 	| **Required**<br> Newsletter ID of the newsletter the subscriber wants to subscribe to.  |
 
 example:
 
