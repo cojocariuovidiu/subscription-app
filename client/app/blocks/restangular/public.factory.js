@@ -1,29 +1,34 @@
 (function () {
 
-    'use strict';
+  'use strict';
 
-    angular
-      .module('blocks.restangular')
-      .factory('PublicRestangular', PublicRestangular);
+  angular
+    .module('blocks.restangular')
+    .factory('PublicRestangular', PublicRestangular);
 
-    PublicRestangular.$inject = [
-        'APP_CONFIG',
-        'Restangular'
-    ];
+  PublicRestangular.$inject = [
+    'APP_CONFIG',
+    'Restangular',
+    '_',
+    'trustedHeadersGenerator'
+  ];
 
-    function PublicRestangular(APP_CONFIG, Restangular) {
-        return Restangular.withConfig(_setConfig);
+  function PublicRestangular(APP_CONFIG, Restangular, _, trustedHeadersGenerator) {
+    return Restangular
+      .withConfig(setConfig)
+      .addFullRequestInterceptor(setTrustedClientHeaders);
 
-        ////
+    ////
 
-        function _setConfig(RestangularConfigurer) {
-            RestangularConfigurer.setBaseUrl(APP_CONFIG.apiEndpoint + '/api');
-            // TODO: revise
-            // RestangularConfigurer.setDefaultHeaders({
-            //     'Cache-Control': 'no-cache',
-            //     'Pragma': 'no-cache'
-            // });
-        }
+    function setConfig(RestangularConfigurer) {
+      RestangularConfigurer.setBaseUrl(APP_CONFIG.apiEndpoint + '/api');
     }
+
+    function setTrustedClientHeaders(elem, operation, what, url, headers) {
+      return {
+        headers: _.extend(headers, trustedHeadersGenerator.generate())
+      };
+    }
+  }
 
 })();
