@@ -60,7 +60,7 @@ Some relevant libraries used:
 
 - [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Its very useful to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `throwjs`, is one of my favorites.
 
-- [momentjs](https://github.com/moment/moment/): _Already explained on the frontend libraries section :-)_
+- [momentjs](https://github.com/moment/moment/): _Already explained on the frontend libraries section._
 
 Some **security** relevant libraries used:
 
