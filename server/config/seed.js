@@ -4,6 +4,7 @@
  */
 
 'use strict';
+
 import keygen from 'keygen';
 import TrustedClient from '../auth/trusted-client/trusted-client.model';
 
