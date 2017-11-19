@@ -326,6 +326,8 @@ module.exports = function (grunt) {
             SHARED_CONFIG: require('./' + grunt.config.get('ngconstant.options.configPath')),
             APP_CONFIG: {
               apiEndpoint: 'http://localhost:9000',
+              apiKey: '9cf09931e7cf2d7d36ad06',
+              apiSecret: 'ead67e06054b717adb50899be53d3bb41f6452374820',
               newsletterId: 'qwerty'
             }
           };
