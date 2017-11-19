@@ -7,21 +7,21 @@
 
   CreateSubscriptionsCtrl.$inject = [
     'APP_CONFIG',
-    'SUBSCRIPTION_SETTINGS',
+    'SHARED_CONFIG',
     '$state',
     'subscriptionsFactory',
     'httpErrorUtils',
     'subscriptionsAlerts'
   ];
 
-  function CreateSubscriptionsCtrl(APP_CONFIG, SUBSCRIPTION_SETTINGS, $state,
+  function CreateSubscriptionsCtrl(APP_CONFIG, SHARED_CONFIG, $state,
     subscriptionsFactory, httpErrorUtils, subscriptionsAlerts) {
     var vm = this;
 
     vm.subscription = _getEmptySubscription();
     vm.isConsentChecked = false;
     vm.isDatePickerOpened = false;
-    vm.minAge = SUBSCRIPTION_SETTINGS.minAge;
+    vm.minAge = SHARED_CONFIG.subscriptionSettings.minAge;
 
     vm.createSubscription = createSubscription;
     vm.hasInputErrors = hasInputErrors;

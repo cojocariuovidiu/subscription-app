@@ -3,9 +3,9 @@
 
 angular.module('subscriptionApp.constants', [])
 
-.constant('APP_CONFIG', {apiEndpoint:'http://localhost:9000',newsletterId:'qwerty'})
+.constant('SHARED_CONFIG', {subscriptionSettings:{minAge:16}})
 
-.constant('SUBSCRIPTION_SETTINGS', {minAge:18})
+.constant('APP_CONFIG', {apiEndpoint:'http://localhost:9000',newsletterId:'qwerty'})
 
 ;
 })(angular);

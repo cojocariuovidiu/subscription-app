@@ -1,3 +1,7 @@
 'use strict';
 
-exports = module.exports = {};
+exports = module.exports = {
+  subscriptionSettings: {
+    minAge: 16
+  }
+};

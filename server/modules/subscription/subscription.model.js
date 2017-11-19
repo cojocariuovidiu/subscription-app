@@ -1,6 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var moment = require('moment');
+
+var MIN_AGE = require('./../../config/environment').subscriptionSettings.minAge;
 
 var SubscriptionSchema = new mongoose.Schema({
   newsletterId: {
@@ -11,6 +14,7 @@ var SubscriptionSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    lowercase: true,
     match: /\S+@\S+/
   },
   firstName: {
@@ -18,7 +22,15 @@ var SubscriptionSchema = new mongoose.Schema({
   },
   dateOfBirth: {
     type: Date,
-    required: true
+    required: true,
+    validate: {
+      validator: function (dateOfBirth) {
+        var today = moment().startOf('day');
+        var age = today.diff(moment(dateOfBirth), 'years')
+        return age >= MIN_AGE;
+      },
+      message: 'Should be +' + MIN_AGE + ' years old to subscribe.'
+    }
   },
   gender: {
     type: String,

@@ -7,10 +7,10 @@
     .directive('subsValidSubscriptionAge', subsValidSubscriptionAge);
 
   subsValidSubscriptionAge.$inject = [
-    'SUBSCRIPTION_SETTINGS'
+    'SHARED_CONFIG'
   ];
 
-  function subsValidSubscriptionAge(SUBSCRIPTION_SETTINGS) {
+  function subsValidSubscriptionAge(SHARED_CONFIG) {
     return {
       require: 'ngModel',
       link: linkFn
@@ -42,7 +42,7 @@
       }
 
       function isValidSubscriptionAge(dateOfBirth) {
-        return calculateAge(dateOfBirth) >= SUBSCRIPTION_SETTINGS.minAge;
+        return calculateAge(dateOfBirth) >= SHARED_CONFIG.subscriptionSettings.minAge;
       }
 
       function enableSubscriptionAgeError() {
