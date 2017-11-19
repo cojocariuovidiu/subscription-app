@@ -44,8 +44,6 @@ Some relevant libraries used:
 
 - [restangular](https://github.com/mgonto/restangular): An AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. **Why:** It is a very simple way to consume data from a RESTful API and it also allows to do some interesting things like creating several instances with different configurations or adding request/response interceptors (which are basically automatic actions to perform on every request/response automatically), among others.
 
-- [momentjs](https://github.com/moment/moment/): Parse, validate, manipulate, and display dates and times in JavaScript. **Why**: Dealing with Dates can be something very tedious and this library offers a very useful and simple API to work with them very easily.
-
 ### Backend
 
 Built using `Node.js` and `MongoDB` as persistance.
@@ -60,11 +58,17 @@ Some relevant libraries used:
 
 - [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Its very useful to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `throwjs`, is one of my favorites.
 
-- [momentjs](https://github.com/moment/moment/): _Already explained on the frontend libraries section._
-
 Some **security** relevant libraries used:
 
 - [helmet](https://github.com/helmetjs/helmet): Helmet is a collection of 12 smaller middleware functions that set HTTP headers to help protect your app. **Why:** Because it can help to avoid some known web vulnerabilities - it is also specified in the Express Security Best Practices [docs](http://expressjs.com/en/advanced/best-practice-security.html#use-helmet).
+
+### Common libraries (Frontend & Backend)
+
+- [momentjs](https://github.com/moment/moment/): Parse, validate, manipulate, and display dates and times in JavaScript. **Why**: Dealing with Dates can be something very tedious and this library offers a very useful and simple API to work with them very easily.
+
+- [lodash](https://github.com/lodash/lodash): JavaScript utility library, implemented with performance in mind. **Why:** Because it makes easier working with arrays, numbers, objects, strings, etc. and allows, for example: it makes easy iterating arrays, objects, strings or just testing values. In the end, it's very useful and saves development time too!
+
+- [crypto](https://github.com/brix/crypto-js): JavaScript library of crypto standards. **Why:** Used it to generate the signature every request sent from a trusted client should specify. 
 
 ## API Documentation
 
