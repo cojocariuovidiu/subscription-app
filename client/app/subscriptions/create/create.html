@@ -63,6 +63,7 @@
               ng-model="createVM.subscription.dateOfBirth"
               is-open="createVM.isDatePickerOpened"
               close-text="Close"
+              subs-valid-subscription-age
               required />
             <span class="input-group-btn">
               <button type="button"
@@ -75,7 +76,15 @@
 
           <p class="help-block"
             ng-if="createVM.hasInputErrors('dateOfBirth')">
-            <span class="text-danger">Enter a valid date.</span>
+            <span class="text-danger"
+              ng-if="createVM.isInvalidDateError('dateOfBirth')">
+              Enter a valid date.
+            </span>
+
+            <span class="text-danger"
+              ng-if="createVM.isInvalidSubscriptionAgeError('dateOfBirth')">
+              Should be +{{createVM.minAge}} years old.
+            </span>
           </p>
         </div>
 

@@ -7,23 +7,27 @@
 
   CreateSubscriptionsCtrl.$inject = [
     'APP_CONFIG',
+    'SUBSCRIPTION_SETTINGS',
     '$state',
     'subscriptionsFactory',
     'httpErrorUtils',
     'subscriptionsAlerts'
   ];
 
-  function CreateSubscriptionsCtrl(APP_CONFIG, $state, subscriptionsFactory,
-    httpErrorUtils, subscriptionsAlerts) {
+  function CreateSubscriptionsCtrl(APP_CONFIG, SUBSCRIPTION_SETTINGS, $state,
+    subscriptionsFactory, httpErrorUtils, subscriptionsAlerts) {
     var vm = this;
 
     vm.subscription = _getEmptySubscription();
     vm.isConsentChecked = false;
     vm.isDatePickerOpened = false;
+    vm.minAge = SUBSCRIPTION_SETTINGS.minAge;
 
     vm.createSubscription = createSubscription;
     vm.hasInputErrors = hasInputErrors;
     vm.isFormFilledCorrectly = isFormFilledCorrectly;
+    vm.isInvalidDateError = isInvalidDateError;
+    vm.isInvalidSubscriptionAgeError = isInvalidSubscriptionAgeError;
     vm.openDatePicker = openDatePicker;
 
 
@@ -40,6 +44,14 @@
 
     function isFormFilledCorrectly() {
       return _isFormValid() && vm.isConsentChecked;
+    }
+
+    function isInvalidDateError(inputName) {
+      return vm.createSubscriptionForm[inputName].$error.date;
+    }
+
+    function isInvalidSubscriptionAgeError(inputName) {
+      return vm.createSubscriptionForm[inputName].$error.subscriptionAge;
     }
 
     function openDatePicker() {

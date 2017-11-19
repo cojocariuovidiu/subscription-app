@@ -9,16 +9,19 @@ describe('Controller: CreateSubscriptionsCtrl', function() {
   var q;
   var CreateSubscriptionsCtrl;
   var APP_CONFIG;
+  var SUBSCRIPTION_SETTINGS;
   var state;
   var subscriptionsFactory;
   var httpErrorUtils;
   var subscriptionsAlerts;
 
-  beforeEach(inject(function($controller, $rootScope, $q, _APP_CONFIG_, $state,
-    _subscriptionsFactory_, _httpErrorUtils_, _subscriptionsAlerts_) {
+  beforeEach(inject(function($controller, $rootScope, $q, _APP_CONFIG_,
+    _SUBSCRIPTION_SETTINGS_, $state, _subscriptionsFactory_, _httpErrorUtils_,
+    _subscriptionsAlerts_) {
     scope = $rootScope.$new();
     q = $q;
     APP_CONFIG = _APP_CONFIG_;
+    SUBSCRIPTION_SETTINGS = _SUBSCRIPTION_SETTINGS_;
     state = $state;
     subscriptionsFactory = _subscriptionsFactory_;
     httpErrorUtils = _httpErrorUtils_;
@@ -59,6 +62,10 @@ describe('Controller: CreateSubscriptionsCtrl', function() {
 
     it('datepicker should be closed', function () {
       expect(CreateSubscriptionsCtrl.isDatePickerOpened).to.be.false;
+    });
+
+    it('subscription min age should be initialized', function () {
+      expect(CreateSubscriptionsCtrl.minAge).to.equal(SUBSCRIPTION_SETTINGS.minAge);
     });
 
   });
