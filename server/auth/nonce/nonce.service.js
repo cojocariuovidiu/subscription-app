@@ -1,7 +1,7 @@
 'use strict';
 
 var Promise = require('bluebird');
-var NonceModel = require('./model');
+var NonceModel = require('./nonce.model');
 
 exports.store = store;
 exports.getByKey = getByKey;
