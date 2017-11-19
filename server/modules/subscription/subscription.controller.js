@@ -12,7 +12,7 @@ exports.create = create;
 function create(req, res, next) {
   subscriptionService.create(req.body)
     .then(function (subscription) {
-      res.status(HttpStatus.CREATED).send({ id: subscription._id });
+      res.status(HttpStatus.CREATED).send({ _id: subscription._id });
     })
     .catch(ValidationError, function (err) {
       next(new throwjs.BadRequest(err.message));
