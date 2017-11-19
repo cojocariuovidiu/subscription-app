@@ -110,7 +110,7 @@ HTTP/1.1 201 Created
 
 | Status | Description 	|
 |-------	|-------------	|
-| 400  | **Bad Request**<br> Request subscription object is missing any of the required fields or any of the specified fields is invalid. |
+| 400  | **Bad Request**<br> Request subscription object is missing any of the required fields<br> or any of the specified fields is invalid. |
 | 409  | **Conflict**<br> The specified email address is already subscribed to that newsletter. |
 
 examples:
