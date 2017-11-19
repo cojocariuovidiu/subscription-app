@@ -10,7 +10,8 @@ var SubscriptionSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    match: /\S+@\S+/
   },
   firstName: {
     type: String
