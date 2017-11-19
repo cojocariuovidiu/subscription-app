@@ -59,8 +59,14 @@
       <script src="bower_components/angular-autodisable/angular-autodisable.js"></script>
       <script src="bower_components/restangular/dist/restangular.js"></script>
       <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/angular-random-string/src/angular-random-string.js"></script>
+      <script src="bower_components/crypto-js/index.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
+
+    <!-- CryptoJS -->
+    <script src="bower_components/crypto-js/crypto-js.js"></script>
+
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
@@ -69,20 +75,22 @@
       <script src="app/subscriptions/subscriptions.module.js"></script>
       <script src="app/widgets/widgets.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/widgets/alerts/alerts.directive.js"></script>
+      <script src="app/widgets/alerts/alerts.controller.js"></script>
+      <script src="app/core/utils/httpErrorUtils.factory.js"></script>
+      <script src="app/subscriptions/create/create.controller.js"></script>
       <script src="app/subscriptions/subscriptions-alerts.factory.js"></script>
       <script src="app/subscriptions/subscriptions.factory.js"></script>
-      <script src="app/app.constant.js"></script>
-      <script src="app/widgets/alerts/alerts.controller.js"></script>
+      <script src="app/blocks/restangular/utils/trusted-headers-generator.factory.js"></script>
       <script src="app/blocks/restangular/public.factory.js"></script>
+      <script src="app/widgets/alerts/alerts.directive.js"></script>
       <script src="app/widgets/alerts/alerts.factory.js"></script>
       <script src="app/widgets/valid-subscription-age/valid-subscription-age.directive.js"></script>
-      <script src="app/core/utils/httpErrorUtils.factory.js"></script>
+      <script src="app/app.constant.js"></script>
       <script src="components/footer/footer.directive.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <script src="components/navbar/navbar.directive.js"></script>
-      <script src="app/subscriptions/create/create.controller.js"></script>
+      <script src="app/core/lodash/lodash.factory.js"></script>
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
