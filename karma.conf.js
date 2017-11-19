@@ -28,6 +28,7 @@ module.exports = function(config) {
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/bower_components/angular-autodisable/angular-autodisable.js',
       'client/bower_components/restangular/dist/restangular.js',
+      'client/bower_components/moment/moment.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',
