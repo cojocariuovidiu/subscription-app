@@ -26,9 +26,11 @@ describe('Factory: subscriptionsFactory', function() {
 
     beforeEach(function () {
       subscription = {
-        email: 'john@doe.com',
-        firstName: 'John',
-        newsletterId: 'qwerty'
+        firstName: 'Bruce',
+        email: 'brucewayne@wayne.enterprises.com',
+        dateOfBirth: '1976-02-28T23:00:00.000Z',
+        gender: 'male',
+        newsletterId: '5a1095859ed46a42ff652796'
       };
 
       subscriptionId = '5a1095859ed46a42ff652796';
