@@ -10,7 +10,7 @@ var EntityDuplicateError = require('../common/exceptions/entity-duplicate-error'
 exports.create = create;
 
 function create(req, res, next) {
-  subscriptionService.create(req.body)
+  subscriptionService.add(req.body)
     .then(function (subscription) {
       res.status(HttpStatus.CREATED).send({ _id: subscription._id });
     })

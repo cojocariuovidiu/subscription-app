@@ -5,9 +5,9 @@ var mongooseUtils = require('../common/utils/mongoose-error-utils');
 var ValidationError = require('../common/exceptions/validation-error');
 var EntityDuplicateError = require('../common/exceptions/entity-duplicate-error');
 
-exports.create = create;
+exports.add = add;
 
-function create(subscription) {
+function add(subscription) {
   return new Subscription(subscription).save()
     .catch(_handleCreateError);
 }
