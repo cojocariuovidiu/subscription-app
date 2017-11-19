@@ -326,6 +326,9 @@ module.exports = function (grunt) {
             APP_CONFIG: {
               apiEndpoint: 'http://localhost:9000',
               newsletterId: 'qwerty'
+            },
+            SUBSCRIPTION_SETTINGS: {
+              minAge: 18
             }
           };
         }
