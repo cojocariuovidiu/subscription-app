@@ -56,8 +56,7 @@ Some relevant libraries used on the backend:
 
 - [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
 
-- [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Very useful, to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `th
-- [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
+- [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Its very useful to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `throwjs`, is one of my favorites.
 
 ## API Documentation
 
@@ -91,15 +90,47 @@ example:
 
 ##### Response
 
-- Successful Response
+###### Successful
 
 | Field 	| Type   	| Description 	|
 |-------	|--------	|-------------	|
 | \_id  | string 	| New subscription's ID. |
 
+example:
+
 ```json
+HTTP/1.1 201 Created
+
 {
   "_id": "5a1071f371e6d6335fd8757b"
 }
 ```
 
+###### Errors
+
+| Status 	| Description 	|
+|-------	|-------------	|
+| 400  | **Bad Request**<br> Request subscription object is missing any of the required fields or any of the specified fields is invalid. |
+| 409  | **Conflict**<br> The specified email address is already subscribed to that newsletter. |
+
+example:
+
+```json
+HTTP/1.1 400 Bad Request
+
+{
+  "name": "BadRequest",
+  "message": "Subscription validation failed: email: Path `email` is required.",
+  "statusCode": 400
+}
+```
+
+```json
+HTTP/1.1 409 Conflict
+
+{
+  "name": "Conflict",
+  "message": "Subscription already exists",
+  "statusCode": 409
+}
+```
