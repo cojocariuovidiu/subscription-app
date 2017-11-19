@@ -56,6 +56,9 @@ Some relevant libraries used on the backend:
 
 - [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
 
+- [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Very useful, to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `th
+- [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
+
 ## API Documentation
 
 ### Subscriptions
@@ -64,7 +67,7 @@ Some relevant libraries used on the backend:
 
 **POST** `/api/subscriptions` creates a new subscription.
 
-##### body
+##### Request
 
 | Field 	| Type   	| Description 	|
 |-------	|--------	|-------------	|
@@ -85,3 +88,18 @@ example:
   "newsletterId": "5a1095859ed46a42ff652796"
 }
 ```
+
+##### Response
+
+- Successful Response
+
+| Field 	| Type   	| Description 	|
+|-------	|--------	|-------------	|
+| \_id  | string 	| New subscription's ID. |
+
+```json
+{
+  "_id": "5a1071f371e6d6335fd8757b"
+}
+```
+
