@@ -42,7 +42,7 @@ Some relevant libraries used on the frontend:
 
 - [angular-autodisable](https://github.com/kirstein/angular-autodisable): An extension to angular `ng-click` directive that automatically sets the element to disabled if the handler would return a promise. **Why:** It is a very useful directive you can easily use on forms to automatically avoid multiple submitting.
 
-- [restangular](https://github.com/mgonto/restangular): An AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. **Why:** It is a very simple way to consume data from a RESTful API and it also allows to do some interest things like creating several instances with different configurations, adding request/response interceptors (which are basically automatic actions to perform on every request/response automatically), among others.
+- [restangular](https://github.com/mgonto/restangular): An AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. **Why:** It is a very simple way to consume data from a RESTful API and it also allows to do some interesting things like creating several instances with different configurations, adding request/response interceptors (which are basically automatic actions to perform on every request/response automatically), among others.
 
 ### Backend
 
