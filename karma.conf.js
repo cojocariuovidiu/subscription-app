@@ -29,8 +29,11 @@ module.exports = function(config) {
       'client/bower_components/angular-autodisable/angular-autodisable.js',
       'client/bower_components/restangular/dist/restangular.js',
       'client/bower_components/moment/moment.js',
+      'client/bower_components/angular-random-string/src/angular-random-string.js',
+      'client/bower_components/crypto-js/index.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
+      'client/bower_components/crypto-js/crypto-js.js',
       'client/app/app.js',
       'client/{app,components}/**/*.module.js',
       'client/{app,components}/**/*.js',
