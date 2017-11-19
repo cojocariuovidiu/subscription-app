@@ -17,7 +17,8 @@
             'ui.router',
             'ui.bootstrap',
             'ngAutodisable',
-            'restangular'
+            'restangular',
+            'angularRandomString'
         ]);
 
 })();
