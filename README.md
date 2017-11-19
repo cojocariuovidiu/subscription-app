@@ -60,7 +60,7 @@ Some relevant libraries used:
 
 Some **security** relevant libraries used:
 
-- [helmet](https://github.com/helmetjs/helmet): Helmet is a collection of 12 smaller middleware functions that set HTTP headers to help protect your app. **Why:** Because it can help to avoid some known web vulnerabilities.
+- [helmet](https://github.com/helmetjs/helmet): Helmet is a collection of 12 smaller middleware functions that set HTTP headers to help protect your app. **Why:** Because it can help to avoid some known web vulnerabilities - see the Express Security Best Practices [docs](http://expressjs.com/en/advanced/best-practice-security.html#use-helmet).
 
 ## API Documentation
 
