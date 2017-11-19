@@ -56,3 +56,32 @@ Some relevant libraries used on the backend:
 
 - [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
 
+## API Documentation
+
+### Subscriptions
+
+#### Create subscription
+
+**POST** `/api/subscriptions` creates a new subscription.
+
+##### body
+
+| Field 	| Type   	| Description 	|
+|-------	|--------	|-------------	|
+| firstName 	| string 	|             	|
+| email 	| string 	|             	|
+| dateOfBirth 	| string 	|             	|
+| gender 	| string 	|             	|
+| newsletterId 	| string 	|             	|
+
+example:
+
+```json
+{
+  "firstName": "Bruce",
+  "email": "brucewayne@wayne.enterprises.com",
+  "dateOfBirth": "1976-02-28T23:00:00.000Z",
+  "gender": "male",
+  "newsletterId": "5a1095859ed46a42ff652796"
+}
+```
