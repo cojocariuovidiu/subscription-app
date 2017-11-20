@@ -40,9 +40,9 @@ Built using `AngularJS` and `Bootstrap`.
 
 Some relevant libraries used:
 
-- [angular-autodisable](https://github.com/kirstein/angular-autodisable): An extension to angular `ng-click` directive that automatically sets the element to disabled if the handler would return a promise. **Why:** It is a very useful directive you can easily use on forms to automatically avoid multiple submitting.
+- [angular-autodisable](https://github.com/kirstein/angular-autodisable): An extension to angular `ng-click` directive that automatically sets the element to disabled if the handler would return a promise. **Why:** It is a very useful directive you can easily use to automatically avoid multiple form submitting.
 
-- [restangular](https://github.com/mgonto/restangular): An AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. **Why:** It is a very simple way to consume data from a RESTful API and it also allows to do some interesting things like creating several instances with different configurations or adding request/response interceptors (which are basically automatic actions to perform on every request/response automatically), among others.
+- [restangular](https://github.com/mgonto/restangular): An AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code. **Why:** It is a very simple way to consume data from a RESTful API and it also allows to do some interesting things like, for example, creating several _Restangular_ instances using different configurations or adding request/response interceptors (which are basically automatic actions to perform on every request/response sent/received), among others.
 
 ### Backend
 
@@ -50,13 +50,13 @@ Built using `Node.js` and `MongoDB` as persistance.
 
 Some relevant libraries used:
 
-- [express](http://expressjs.com): A minimal and flexible `Node.js` web application framework that provides a robust set of features for web and mobile applications with a large number of HTTP utility methods and middleware that turns creating an API into something fast and easy. **Why:** It is one of the most straightforward framework choices for developing APIs in `Node.js`, with a big community behind it. There are also a lot of useful middleware out there - for example: authentication or security middleware - that can be easily plugged in your express app with no effort.
+- [express](http://expressjs.com): A minimal and flexible `Node.js` web application framework that provides a robust set of features for web and mobile applications with a large number of HTTP utility methods and middleware that turns creating an API into something fast and easy. **Why:** It is one of the most straight-forward framework choices for developing APIs in `Node.js`, with a big community behind it. There are also a lot of useful middleware out there - for example, authentication and security middleware - that can be easily plugged into your express app with no effort.
 
 - [mongoose](https://github.com/Automattic/mongoose): A `MongoDB` object modeling for `Node.js` that provides a straight-forward, schema-based solution to model your application data. **Why:** It makes `MongoDB` data modeling and validation easier because it includes built-in query building, validation, type casting and some other useful features that, in the end, allow to simplify code and save development time.
 
 - [throwjs](https://github.com/kbariotis/throw.js/): A very simple HTTP Error collection library. **Why:** It is very handy because it allows to create HTTP Error objects through a very simple and intuitive API that also simplifies and keeps code neat and clean - plus saves development time too!
 
-- [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** Its very useful to avoid having status codes written in number on your server code and having them easily referenced by constants which keeps code much clean and readable. This one, together with the above listed `throwjs`, is one of my favorites.
+- [node-http-status](https://github.com/prettymuchbryce/node-http-status): Very simple module that exports constants enumerating the HTTP status codes. **Why:** It is very useful to avoid having status codes written in number in your server's code and having them easily referenced by constants instead, which keeps code much clean and readable. This one, together with the above listed `throwjs`, is one of my favorites.
 
 Some **security** relevant libraries used:
 
@@ -66,7 +66,7 @@ Some **security** relevant libraries used:
 
 - [momentjs](https://github.com/moment/moment/): Parse, validate, manipulate, and display dates and times in JavaScript. **Why**: Dealing with Dates can be something very tedious and this library offers a very useful and simple API to work with them very easily.
 
-- [lodash](https://github.com/lodash/lodash): JavaScript utility library, implemented with performance in mind. **Why:** Because it makes easier working with arrays, numbers, objects, strings, etc. and allows, for example: it makes easy iterating arrays, objects, strings or just testing values. In the end, it's very useful and saves development time too!
+- [lodash](https://github.com/lodash/lodash): JavaScript utility library, implemented with performance in mind. **Why:** Because it makes easier working with arrays, numbers, objects, strings, etc. like, for example, iterating arrays, objects, strings or just testing values. In the end, it's very useful and saves development time too!
 
 - [crypto](https://github.com/brix/crypto-js): JavaScript library of crypto standards. **Why:** Used it to generate the signature every request sent from a trusted client should specify. 
 
@@ -78,24 +78,25 @@ A custom security middleware has been developed in order to secure the `/api` en
 
 | Http Header | Description 	|
 |-------	|-------------	|
-| `subs-ts`  | The moment the http request is sent.<br> _Format: UTC Unix Timestamp._ |
+| `subs-ts`  | The moment, expressed in _milliseconds_, the http request is being sent.<br> _Format: UTC Unix Timestamp._ |
 | `subs-nonce`  | A random string. |
-| `subs-apikey`  | The _api-key_ provided by the subscription app to the backend. |
-| `subs-authorization`  | The request signature.<br> An hexadecimal hash generated by the _SHA1_ algorithm applied to a `keystring` using the provided _api-secret_ as the generator key. |
+| `subs-apikey`  | The _api-key_ provided by the subscription app to the trusted client. |
+| `subs-authorization`  | The request signature.<br> An hexadecimal coded hash generated by the _SHA1_ algorithm applied to a `keystring` using the _api-secret_ provided by the subscription app to the trusted client as the generator key. |
 
-_NOTE: Didn't have time to use these headers in the integration tests, so the use of this middleware is commented in the code @_ [/server/routes.js:14](https://github.com/charliemc/subscription-app/blob/515925e7dae7fccffc891de7492a766bf06d6756/server/routes.js#L14)
+_NOTE: I didn't have time to use these headers in the integration tests, so the use of this middleware is commented in the code @_ [/server/routes.js:14](https://github.com/charliemc/subscription-app/blob/515925e7dae7fccffc891de7492a766bf06d6756/server/routes.js#L14)
 
 #### Signature keystring generator
 
-The `keystring` we use to generate the signature is the result of concatenating the nonce, timestamp and apikey by some hash `#` characters:
+The `keystring` we use to generate the signature is the result of concatenating the `nonce`, `timestamp` and `apikey` together with some hash `#` characters:
 
 `{nonce}#{ts}#{api-key}##`
 
-The JavaScript function that generates this string, would be the following:
+An example of a JavaScript function that would generate this string would be the following:
 
 ```javascript
-// Generates the keystring
-// Pre: <headersData.nonce>, <headersData.ts> y <headersData.apiKey> should be the ones used on the headers.
+// Generates the keystring.
+// Pre: <headersData.nonce>, <headersData.ts> and <headersData.apiKey> 
+// should contain the values used in the headers.
 function generateKeyString(headersData) {
   return headersData.nonce.concat('#')
     .concat(headersData.ts)
